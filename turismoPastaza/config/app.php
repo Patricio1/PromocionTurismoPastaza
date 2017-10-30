@@ -155,6 +155,7 @@ return [
         turismoPastaza\Providers\AuthServiceProvider::class,
         turismoPastaza\Providers\EventServiceProvider::class,
         turismoPastaza\Providers\RouteServiceProvider::class,
+  
 
     ],
 
@@ -201,6 +202,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+      
 
     ],
 

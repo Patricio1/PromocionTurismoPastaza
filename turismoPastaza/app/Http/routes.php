@@ -14,6 +14,7 @@
 /**Route::get('/', function () {
     return view('index');
 });*/
+Route::resource('ModuloAdministracion/modulo','ModuloController');
 Route::get('categorias','CategoriaController@index');
 Route::get('subcategorias','SubcategoriaController@index');
 Route::get('subcategoriasbycategory/{idcategoria}','SubcategoriaController@getByIdCategorias');
