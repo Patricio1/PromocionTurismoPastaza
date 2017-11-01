@@ -29,7 +29,8 @@
         <!--Resources for leaftlet library -->    
        
 
-     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+     <!--<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />-->
+      <link rel="stylesheet" href="recursos_publico/css/leaftlet/leaflet.css" />
 
     <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
     <script src="http://leaflet-extras.github.io/leaflet-providers/leaflet-providers.js"></script>
@@ -46,6 +47,15 @@
     width: 400px;
     height: 200px;
             }
+           .etiqueta
+            {
+                color: #181A1C;
+                font-weight: bold;
+            }
+            .fuente-black
+                {
+                   color: #181A1C;
+                }            
         </style>
     </head>
     
@@ -71,7 +81,7 @@
                             <li><a href="#calificar">Calificar</a></li>
                             <li><a href="#acercade">Acerca de</a></li>
                             <li><a href="#descargarapp">Descarga la App</a></li>
-                            <li><a href="login">Iniciar Sesión</a></li>
+                            <li><a href="javascript:void();">Iniciar Sesión</a></li>
                         </ul>
                     </div>
                     <!-- End main navigation -->

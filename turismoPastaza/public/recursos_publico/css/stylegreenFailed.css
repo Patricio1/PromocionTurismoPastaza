@@ -297,8 +297,7 @@ p {
     left:0;
     width:100%;
     height:100%;
-    //background:#3cb04b; 
-    background:#181A1C;
+    background:#3cb04b;
     position:absolute;
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
@@ -472,8 +471,8 @@ p {
     text-align: center;
 }
 #portfolio-grid .mix {
-    //opacity: 0;
-   // display: none;
+    opacity: 0;
+    display: none;
 }
 /*
 3.3 About

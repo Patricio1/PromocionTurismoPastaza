@@ -215,7 +215,7 @@ function getServiciosSitioTuristico(latitud, longitud)
                     });
                     if(htmlcompleto.length>0)
                     {
-                    //console.log(htmlcompleto);
+                   // console.log(htmlcompleto);
                     $('#portfolio-grid li').remove();
                    $("#container ul").append(htmlcompleto);
                }
@@ -434,9 +434,9 @@ function getServiciosSitioTuristico(latitud, longitud)
                            $("#dDireccion").text(direccion);
                            $("#dLatitud").text('Latitud: '+latitud);
                            $("#dLongitud").text('Longitud: '+longitud);
-                           $("#dTelefono").text('Teléfono: '+telefono);             
-                           $("#dCelular").text('Celular: '+telefono);
-                           $("#dEmail").text('Email: '+email);
+                           $("#dTelefono").text(telefono);             
+                           $("#dCelular").text(telefono);
+                           $("#dEmail").text(email);
                            $("#dFecha").text(fecha);
 
                            if(img!=null)

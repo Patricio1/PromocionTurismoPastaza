@@ -14,7 +14,7 @@
                              <div class="da-slide">
                                 <h2 class="fittext2">{{$sitios->NOMBRE}}</h2>
                                 <h4>{{$sitios->DIRECCION}}</h4>
-                                <p>{{$sitios->DESCRIPCION}}</p>
+                                <p  style="color: #3cb04b">{{$sitios->DESCRIPCION}}</p>
                                 <a href="javascript:mostrarDetalleSitioTuristico({{$sitios->LATITUD}},{{$sitios->LONGITUD}},{{$sitios->ID_SITIO}})" class="da-link button">Leear más</a>
                                 <div class="da-img">
                                     <img src="{{$sitios->IMG}}" alt="{{$sitios->ALT}}" width="320" />
@@ -49,7 +49,7 @@
                     <div class="row-fluid">
 
                         <div class="span2">
-                            <label for="">CATEGORIAS</label>
+                            <label for="" style="font-weight: bold;">CATEGORIAS</label>
                         </div>
                         <div class="span4">
 
@@ -61,7 +61,7 @@
                       </select>
                         </div>
                         <div class="span2">
-                               <label for="">SUB-CATEGORIAS</label>
+                               <label for="" style="font-weight: bold;">SUB-CATEGORIAS</label>
                         </div>
                         <div class="span4">
                             <select name="ddlsubcategoria" id="ddlsubcategoria">                    
@@ -96,30 +96,30 @@
                 <div class="row-fluid">
                     <div class="span8">                        
                         <div class="row-fluid">
-                            <div class="span2">
+                            <div class="span2 etiqueta">
                                 Descripción:
                             </div>
-                            <div id="dDescripcion" class="span10">
+                            <div id="dDescripcion" class="span10 fuente-black">
                                {{$sitio_random->DESCRIPCION}}
                             </div>
 
                         </div>
                          <div class="row-fluid">
-                            <div class="span2">
+                            <div class="span2 etiqueta">
                                 Dirección:
                             </div>
-                            <div id="dDireccion" class="span10">
+                            <div id="dDireccion" class="span10 fuente-black">
                                  {{$sitio_random->DIRECCION}}
                             </div>
 
                         </div>
-                        Ubicación
+                       <strong style="color: black">Ubicación</strong>
                          <div class="row-fluid">
-                            <div id="dLatitud" class="span6">
-                                 Latitud: {{$sitio_random->LATITUD}}
+                            <div id="dLatitud" class="span6 fuente-black">
+                                <strong> Latitud:</strong> {{$sitio_random->LATITUD}}
                             </div>
-                            <div id="dLongitud" class="span6">
-                               Longitud: {{$sitio_random->LONGITUD}}
+                            <div id="dLongitud" class="span6 fuente-black">
+                              <strong> Longitud:</strong> {{$sitio_random->LONGITUD}}
                             </div>                            
 
                         </div>
@@ -222,20 +222,30 @@
                     </div>
                 </div> <br><br>
                 <!--Fin Seccion Cuadro calificacion -->
-                <div class="row-fluid">                   
-                    <div id="dTelefono" class="span2">
-                       Teléfono: {{$sitio_random->TELEFONO}}
+                <div class="row-fluid">  
+
+                    <div class="span1 etiqueta">
+                       Teléfono:
+                    </div>                 
+                    <div id="dTelefono" class="span1 fuente-black">
+                       {{$sitio_random->TELEFONO}}
                     </div>
-                    <div id="dCelular" class="span2">
-                      Celular: {{$sitio_random->CELULAR}}
+                     <div class="span1 etiqueta">
+                      Celular:
+                    </div> 
+                    <div id="dCelular" class="span1 fuente-black">
+                     {{$sitio_random->CELULAR}}
                     </div>
-                    <div id="dEmail" class="span4">
-                     Email: {{$sitio_random->EMAIL}}
+                    <div class="span1 etiqueta">
+                      Email:
                     </div>
-                    <div  class="span2">
-                       Última actualización:
+                    <div id="dEmail" class="span3 fuente-black">
+                      {{$sitio_random->EMAIL}}
                     </div>
-                    <div id="dFecha" class="span2">
+                    <div  class="span2 fuente-black">
+                      <strong> Última actualización:</strong>
+                    </div>
+                    <div id="dFecha" class="span2 fuente-black">
                          {{$sitio_random->ULTIMA_EDICION}}
                     </div> 
                      @endforeach                   
@@ -351,7 +361,7 @@
                         <div class="center">                          
                            <h1>Muy pronto nuestra app oficial</h1>
                              <p class="large-text">Si te gustó nuestro portal web te gustará más aún nuestra aplicación móvil.</p>                            
-                            <p style="text-align: justify;">Nuestra aplicación móvil está orientada a la plataforma android <i class="fa fa-android" aria-hidden="true" style="font-size: 25px;color: #4CAF50"></i> y tendrá características similares a la de éste portal web, podrás descargarla muy pronto y totalmente gratis.</p>
+                            <p style="text-align: justify;" class="fuente-black">Nuestra aplicación móvil está orientada a la plataforma android <i class="fa fa-android" aria-hidden="true" style="font-size: 25px;color: #4CAF50"></i> y tendrá características similares a la de éste portal web, podrás descargarla muy pronto y totalmente gratis.</p>
                               <a id="descarga" href="#" class="button" ><i class="fa fa-download" aria-hidden="true" style="font-size: 25px;"></i> Descargar</a>
                         </div>
                     </div>
