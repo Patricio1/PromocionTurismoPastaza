@@ -29,5 +29,9 @@ Route::get('categoriasmascalificadas','SitioTuristicoController@getCategoriasMas
 Route::get('sitiosmascalificados','SitioTuristicoController@getSitiosMasCalificados');
 Route::get('login','SitioTuristicoController@login');
 Route::get('/','SitioTuristicoController@getSitiosRecientes');
+Route::get('perfiles','PerfilController@getAllPerfilesAjax');
+Route::resource('admin/perfil','PerfilController');
+Route::resource('admin/modulo','ModuloController');
+Route::resource('admin/recurso','RecursoController');
 
 

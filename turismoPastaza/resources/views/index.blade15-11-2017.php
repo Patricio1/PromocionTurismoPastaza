@@ -224,23 +224,23 @@
                 <!--Fin Seccion Cuadro calificacion -->
                 <div class="row-fluid">  
 
-                   <!-- <div class="span1 etiqueta">
-                     
-                    </div>   -->              
-                    <div id="dTelefono" class="span2 fuente-black">
-                      <i class="fa fa-phone" aria-hidden="true"></i>  {{$sitio_random->TELEFONO}}
+                    <div class="span1 etiqueta">
+                       Teléfono:
+                    </div>                 
+                    <div id="dTelefono" class="span1 fuente-black">
+                       {{$sitio_random->TELEFONO}}
                     </div>
-                     <!--<div class="span1 etiqueta">
+                     <div class="span1 etiqueta">
                       Celular:
-                    </div> -->
-                    <div id="dCelular" class="span2 fuente-black">
-                    <i class="fa fa-mobile" aria-hidden="true"></i> {{$sitio_random->CELULAR}}
+                    </div> 
+                    <div id="dCelular" class="span1 fuente-black">
+                     {{$sitio_random->CELULAR}}
                     </div>
-                   <!-- <div class="span1 etiqueta">
+                    <div class="span1 etiqueta">
                       Email:
-                    </div>-->
-                    <div id="dEmail" class="span4 fuente-black">
-                     <i class="fa fa-envelope" aria-hidden="true"></i> {{$sitio_random->EMAIL}}
+                    </div>
+                    <div id="dEmail" class="span3 fuente-black">
+                      {{$sitio_random->EMAIL}}
                     </div>
                     <div  class="span2 fuente-black">
                       <strong> Última actualización:</strong>

@@ -31,15 +31,11 @@ class SitioTuristicoController extends Controller
          return response()->json($sitiosTuristicos,200);
    }
    public function getFiltrosCalificacion()
-   {      
-         return response()->json($this->getFiltrosCalificacionGenerico(),200);         
-   }
-    public function getFiltrosCalificacionGenerico()
    {
         $filtrosCalificacion = DB::table('filtro')                     
          ->select('ID','VALOR','NOMBRE','ICONO')      
          ->orderBy('ID','asc')->get();
-         return $filtrosCalificacion;         
+         return response()->json($filtrosCalificacion,200);
    }
    public function getSitiosBySubcategoria($subcategoria)
    {
@@ -53,10 +49,6 @@ class SitioTuristicoController extends Controller
          return response()->json($sitiosTuristicos,200);
    }
     public function getCategoriasMasCalificadas()
-   {        
-         return response()->json($this->getCategoriasMasCalificadasGenerico(),200);    
-   }
-    public function getCategoriasMasCalificadasGenerico()
    {
          $sitiosTuristicos = DB::table('calificacion as c')
          ->join('sitio_turistico as s','c.ID_SITIO','=','s.ID_SITIO')                 
@@ -68,10 +60,22 @@ class SitioTuristicoController extends Controller
          ->orderBy('CALIFICACION','desc')
          ->limit(3)
          ->get();
-         return $sitiosTuristicos;    
+         return response()->json($sitiosTuristicos,200);
+
+        
    }
     public function getSitiosMasCalificados()
-   {          
+   {
+         /**$sitiosTuristicos = DB::table('calificacion as c')
+         ->join('sitio_turistico as s','c.ID_SITIO','=','s.ID_SITIO')        
+         ->select('s.NOMBRE as SITIO',
+          DB::raw("(count( c.ID_SITIO)) as CALIFICACION"))
+         ->where('s.ESTADO','=',1)
+         ->groupBy('s.NOMBRE')         
+         ->orderBy('CALIFICACION','desc')
+         ->limit(3)
+         ->get();
+         return response()->json($sitiosTuristicos,200);   */     
          return response()->json($this->getSitiosMasCalificadosGenerico(),200);
    }
      public function getSitiosMasCalificadosGenerico()
@@ -88,17 +92,21 @@ class SitioTuristicoController extends Controller
          return $sitiosTuristicos;        
    }
    public function getCalificacionSitio($latitud,$longitud)
-   {               
-         return response()->json($this->getCalificacionSitioGenerico($latitud,$longitud),200);
-   }
-   public function getCalificacionSitioGenerico($latitud,$longitud)
    {
          //lamada a procedimiento almacenado GetCalificacion(param)
          $calificacion = DB::select("CALL GetCalificacion($latitud,$longitud)");        
-         return $calificacion;
+         return response()->json($calificacion,200);
    }
    public function getServiciosSitio($latitud,$longitud)
-   {                
+   {        
+        /** $serviciossitio = DB::table('servicios as s')
+         ->join('recurso as r','r.ID_SERVICIO','=','s.ID_SERVICIO') 
+         ->join('sitio_turistico as st','r.ID_SITIO','=','st.ID_SITIO')               
+         ->select('s.NOMBRE','s.PRECIO','s.DESCRIPCION','r.PATH as IMAGEN','r.DESCRIPCION as ALT')         
+         ->where('st.LATITUD','=',$latitud)
+         ->where('st.LONGITUD','=',$longitud)
+         ->get();
+         return response()->json($serviciossitio,200); */    
          return response()->json($this->getServiciosSitioGenerico($latitud,$longitud),200);   
    }
    public function getServiciosSitioGenerico($latitud,$longitud)
@@ -145,7 +153,7 @@ class SitioTuristicoController extends Controller
 
          //->orderBy('s.ULTIMA_EDICION','desc')
 
-         $categorias = $this->getCategorias();           
+         $categorias = DB::table('categoria')->select('ID','NOMBRE','ICONO')->orderBy('ID','asc')->get(); 
 
           //obtener sitio turistico randomico
           $sitioRandom = DB::table('sitio_turistico as s')
@@ -167,11 +175,21 @@ class SitioTuristicoController extends Controller
           $longitud = $sitio_random->LONGITUD;
          }
 
+        /**  $serviciossitio = DB::table('servicios as s')
+         ->join('recurso as r','r.ID_SERVICIO','=','s.ID_SERVICIO') 
+         ->join('sitio_turistico as st','r.ID_SITIO','=','st.ID_SITIO')               
+         ->select('s.NOMBRE','s.PRECIO','s.DESCRIPCION','r.PATH as IMAGEN','r.DESCRIPCION as ALT')         
+         ->where('st.LATITUD','=',$latitud)
+         ->where('st.LONGITUD','=',$longitud)
+         ->get();*/
+         
+        /** $json_ = $this->getServiciosSitio($latitud,$longitud);
+         $obje = json_decode($json_);*/
          $serviciossitio = $this->getServiciosSitioGenerico($latitud,$longitud);
 
 
-         
-         $calificacion = $this->getCalificacionSitioGenerico($latitud,$longitud); 
+          //lamada a procedimiento almacenado GetCalificacion(param1,param2) para obtener la calificacion del sitio dado
+         $calificacion = DB::select("CALL GetCalificacion($latitud,$longitud)"); 
          $numbers = array();
          $totalCalificacion = 0;
          $valorxCalificacion = 0;
@@ -195,12 +213,33 @@ class SitioTuristicoController extends Controller
          else $promedioCalificacion = 0;
 
          
-          $filtrosCalificacion = $this->getFiltrosCalificacionGenerico();
+          $filtrosCalificacion = DB::table('filtro')                     
+         ->select('ID','VALOR','NOMBRE','ICONO')      
+         ->orderBy('ID','asc')->get();
          
 
-          $categoriasDestacadas = $this->getCategoriasMasCalificadasGenerico();
+          $categoriasDestacadas = DB::table('calificacion as c')
+         ->join('sitio_turistico as s','c.ID_SITIO','=','s.ID_SITIO')                 
+         ->join('categoria as ct','s.CAT_ID','=','ct.ID') 
+         ->select('ct.NOMBRE as CATEGORIA',
+          DB::raw("(count( c.ID_SITIO)) as CALIFICACION"))
+         ->where('s.ESTADO','=',1)
+         ->groupBy('ct.NOMBRE')         
+         ->orderBy('CALIFICACION','desc')
+         ->limit(3)
+         ->get();
 
-       
+
+         /** $sitiosMasCalificados = DB::table('calificacion as c')
+         ->join('sitio_turistico as s','c.ID_SITIO','=','s.ID_SITIO')        
+         ->select('s.NOMBRE as SITIO',
+          DB::raw("(count( c.ID_SITIO)) as CALIFICACION"))
+         ->where('s.ESTADO','=',1)
+         ->groupBy('s.NOMBRE')         
+         ->orderBy('CALIFICACION','desc')
+         ->limit(3)
+         ->get();*/
+
          $sitiosMasCalificados = $this->getSitiosMasCalificadosGenerico();
 
         //return response()->json($sitiosTuristicosRecientes,200);     
@@ -209,8 +248,7 @@ class SitioTuristicoController extends Controller
    }
    public function getCategorias()
    {
-         $categorias = DB::table('categoria')->select('ID','NOMBRE','ICONO')->orderBy('ID','asc')->get();
-         return $categorias;         
+         $categorias = DB::table('categoria')->select('ID','NOMBRE','ICONO')->orderBy('ID','asc')->get();         
          //return view("index",["sitiosTuristicosRecientes"=>$sitiosTuristicosRecientes]);        
    }
 

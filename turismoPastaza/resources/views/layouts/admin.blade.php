@@ -8,20 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+  
+    <link rel="stylesheet" type="text/css" href="../recursos_admin/css/bootstrap.min.css">
     <!-- Google fonts - Roboto -->
-    <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Poppins:300,400,700')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="{{asset('css/style.default.css')}}" id="theme-stylesheet">
+    <link rel="stylesheet" href="../recursos_admin/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
+    <link rel="stylesheet" href="../recursos_admin/css/custom.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
+    <link rel="shortcut icon" href="../recursos_admin/img/favicon.ico">
     <!-- Font Awesome CDN-->
     <!-- you can replace it by local Font Awesome-->
-    <script src="{{asset('https://use.fontawesome.com/99347ac47f.js')}}"></script>
+    <script src="https://use.fontawesome.com/99347ac47f.js"></script>
     <!-- Font Icons CSS-->
-    <link rel="stylesheet" href="{{asset('https://file.myfontastic.com/da58YPMQ7U5HY8Rb6UxkNf/icons.css')}}">
+    <link rel="stylesheet" href="https://file.myfontastic.com/da58YPMQ7U5HY8Rb6UxkNf/icons.css">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -82,17 +83,17 @@
                 <li class="nav-item dropdown"> <a id="messages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-envelope-o"></i><span class="badge bg-orange">10</span></a>
                   <ul aria-labelledby="notifications" class="dropdown-menu">
                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-profile"> <img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-profile"> <img src="../recursos_admin/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="msg-body">
                           <h3 class="h5">Jason Doe</h3><span>Sent You Message</span>
                         </div></a></li>
                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-profile"> <img src="img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-profile"> <img src="../recursos_admin/img/avatar-2.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="msg-body">
                           <h3 class="h5">Frank Williams</h3><span>Sent You Message</span>
                         </div></a></li>
                     <li><a rel="nofollow" href="#" class="dropdown-item d-flex"> 
-                        <div class="msg-profile"> <img src="img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="msg-profile"> <img src="../recursos_admin/img/avatar-3.jpg" alt="..." class="img-fluid rounded-circle"></div>
                         <div class="msg-body">
                           <h3 class="h5">Ashley Wood</h3><span>Sent You Message</span>
                         </div></a></li>
@@ -111,7 +112,7 @@
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="{{asset('img/avatar-1.jpg')}}" alt="..." class="img-fluid rounded-circle"></div>
+            <div class="avatar"><img src="../recursos_admin/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
               <h1 class="h4">Mark Stephen</h1>
               <p>Web Designer</p>
@@ -142,24 +143,33 @@
         </nav>
         <div class="content-inner">
           <!-- Page Header-->
-          <header class="page-header">
+       <header class="page-header">
             <div class="container-fluid">
-              <h2 class="no-margin-bottom">contenido</h2>
+              <h2 class="no-margin-bottom">Forms</h2>
             </div>
           </header>
+
+            <!-- Breadcrumb-->
+          <!--<div class="breadcrumb-holder container-fluid">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Forms</li>
+            </ul>
+          </div>-->
               
-            <div class="container-fluid">
-              <div class="row bg-white has-shadow">
-                <div class="container">
+            
+             
             @yield('contenido')
-            </div> <!-- Item -->
-               </div>
-          </section>
+          
+             
+         
           <!-- Dashboard Header Section    -->
           <section class="dashboard-header">
             <div class="container-fluid">
       </div>
           </section>
+
+
           <!-- Page Footer-->
           <footer class="main-footer">
             <div class="container-fluid">
@@ -178,14 +188,13 @@
       </div>
     </div>
     <!-- Javascript files-->
-    <script src="{{asset('https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')}}"></script>
-    <script src="{{asset('js/tether.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('js/jquery.cookie.js')}}"> </script>
-    <script src="{{asset('js/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js')}}"></script>
-    <script src="{{asset('js/charts-home.js')}}"></script>
-    <script src="{{asset('js/front.js')}}"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="../recursos_admin/js/tether.min.js"></script>
+    <script src="../recursos_admin/js/bootstrap.min.js"></script>
+    <script src="../recursos_admin/js/jquery.cookie.js"> </script>
+    <script src="../recursos_admin/js/jquery.validate.min.js"></script>  
+    <script src="../recursos_admin/js/front.js"></script>
+     
    <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -194,5 +203,21 @@
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
+
+    @section('scripts')
+    @show
+
+    <!--F -->
+<script type="text/javascript">
+  $("#searchText").keyup(function () {
+    var rows = $("#fbody").find("tr").hide();
+    if (this.value.length) {
+        var data = this.value.split(" ");
+        $.each(data, function (i, v) {
+            rows.filter(":contains('" + v + "')").show();
+        });
+    } else rows.show();
+});
+</script>
   </body>
 </html>
